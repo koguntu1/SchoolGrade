@@ -9,7 +9,7 @@ import javafx.util.StringConverter;
 
 /**
  * This is the GradeCellFactory class
- * @author Iam
+ * @author Keith Oguntuwase
  * @version 1.0
  *
  */

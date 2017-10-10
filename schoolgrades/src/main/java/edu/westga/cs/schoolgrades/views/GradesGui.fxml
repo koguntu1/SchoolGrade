@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="290.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs.schoolgrades.controllers.GradesController">
+   <bottom>
+      <HBox prefHeight="15.0" prefWidth="265.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label contentDisplay="RIGHT" text="Final Grade:">
+               <graphic>
+                  <TextField fx:id="finalGradeTextField" editable="false" prefHeight="25.0" prefWidth="150.0">
+                     <tooltip>
+                        <Tooltip text="Final Grade" />
+                     </tooltip></TextField>
+               </graphic>
+            </Label>
+            <Button fx:id="recalculateButton" mnemonicParsing="false" onAction="#onRecalculateButtonClick" prefHeight="25.0" prefWidth="115.0" text="Recalculate" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <Label text="Quizzes" />
+                  <ListView fx:id="quizzesListView" editable="true" prefHeight="205.0" prefWidth="85.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onAddQuizMenuItemClick" text="add quiz" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <tooltip>
+                        <Tooltip text="Column for Quiz Grades" />
+                     </tooltip>
+                  </ListView>
+                  <Label contentDisplay="BOTTOM" text="Quiz  Subtotal">
+                     <graphic>
+                        <TextField fx:id="quizSubtotalTextField" editable="false" prefHeight="25.0" prefWidth="85.0">
+                           <tooltip>
+                              <Tooltip text="Quiz Subtotal" />
+                           </tooltip></TextField>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Homeworks" />
+                  <ListView fx:id="homeworkListView" editable="true" prefHeight="200.0" prefWidth="130.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onAddHomeworkMenuItemClick" text="Add Homework" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <tooltip>
+                        <Tooltip text="Column for Homework Grades" />
+                     </tooltip>
+                  </ListView>
+                  <Label contentDisplay="BOTTOM" text="HW Subtotal">
+                     <graphic>
+                        <TextField fx:id="homeworkSubtotalTextField" editable="false" prefHeight="25.0" prefWidth="130.0">
+                           <tooltip>
+                              <Tooltip text="Homework Subtotal" />
+                           </tooltip></TextField>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="235.0" prefWidth="135.0">
+               <children>
+                  <Label text="Exams" />
+                  <ListView fx:id="examsListView" editable="true">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onAddExamMenuItemClick" text="Add Exam" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                     <tooltip>
+                        <Tooltip text="Column for Exam Grades" />
+                     </tooltip>
+                  </ListView>
+                  <Label contentDisplay="BOTTOM" text="Exam Subtotal">
+                     <graphic>
+                        <TextField fx:id="examSubtotalTextField" editable="false" prefHeight="25.0" prefWidth="130.0">
+                           <tooltip>
+                              <Tooltip text="Exam Subtotal" />
+                           </tooltip></TextField>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Data">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onAddQuizMenuItemClick" text="Add Quiz" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAddHomeworkMenuItemClick" text="Add Homework" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAddExamMenuItemClick" text="Add Exam" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
