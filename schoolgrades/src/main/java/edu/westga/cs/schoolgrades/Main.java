@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This is the main clas of the project 
- * @author Iam
+ * This is the main class of the project 
+ * @author Keith Oguntuwase
  * @version 1.0
  *
  */
