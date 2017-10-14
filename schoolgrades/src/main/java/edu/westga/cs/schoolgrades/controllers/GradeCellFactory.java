@@ -14,11 +14,13 @@ import javafx.util.StringConverter;
  *
  */
 class GradeCellFactory implements Callback<ListView<SimpleGrade>, ListCell<SimpleGrade>> {
-    public ListCell<SimpleGrade> call(ListView<SimpleGrade> param) {
+    @Override
+	public ListCell<SimpleGrade> call(ListView<SimpleGrade> param) {
         final TextFieldListCell<SimpleGrade> cell = new TextFieldListCell<SimpleGrade>();
         cell.setEditable(true);
         cell.setConverter(new StringConverter<SimpleGrade>() {
-            public String toString(SimpleGrade grade) {
+            @Override
+			public String toString(SimpleGrade grade) {
                 String value = String.format("%.2f", new Object[] { 
                         Double.valueOf(grade.getValue()) 
                 });
@@ -26,7 +28,8 @@ class GradeCellFactory implements Callback<ListView<SimpleGrade>, ListCell<Simpl
                 return value;
             }
 
-            public SimpleGrade fromString(String text) {
+            @Override
+			public SimpleGrade fromString(String text) {
                 try {
                     double value = Double.parseDouble(text);
                     return new SimpleGrade(value);
