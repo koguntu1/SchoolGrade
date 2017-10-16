@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * This is the Weighted Grade test class
- *
+ * 
  * @author Keith Oguntuwase
  * @version 1.0
  *

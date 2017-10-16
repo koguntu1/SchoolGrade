@@ -19,6 +19,7 @@ public class WeightedGrade implements Grade {
 	 * @param decoratedGrade
 	 * @param weight
 	 */
+
 	public WeightedGrade(Grade decoratedGrade, double weight) {
 		if (decoratedGrade == null) {
 			throw new IllegalArgumentException("grade should not be null");
