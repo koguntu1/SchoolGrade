@@ -24,7 +24,7 @@ import javafx.util.converter.NumberStringConverter;
 
 /**
  * This is the GradesController class
- * 
+ *
  * @author Keith Oguntuwase
  * @version 1.0
  *
