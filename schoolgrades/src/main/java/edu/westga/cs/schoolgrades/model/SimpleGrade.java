@@ -20,7 +20,8 @@ public class SimpleGrade implements Grade {
      * This is getValue method
      * @return double    
      */
-    public double getValue() {
+    @Override
+	public double getValue() {
         return this.value;
     }
 

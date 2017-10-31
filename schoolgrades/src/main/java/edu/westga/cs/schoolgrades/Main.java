@@ -20,7 +20,8 @@ public class Main extends Application {
      * @param primaryStage     
      * @throws Exception   
      */
-    public void start(Stage primaryStage) throws Exception {
+    @Override
+	public void start(Stage primaryStage) throws Exception {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         URL resource = classLoader.getResource("edu/westga/cs/schoolgrades/views/GradesGui.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
