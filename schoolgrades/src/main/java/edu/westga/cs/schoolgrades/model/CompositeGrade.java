@@ -4,79 +4,78 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javafx.collections.ObservableList;
+
 /**
- * This is the CompositeGrade class
- *
- * @author Keith Oguntuwase
- * @version 1.0
+ * A {@link Grade} representing the aggregation of several other grades. Uses a {@link GradeCalculationStrategy} to determine
+ * the calculation for the aggregate score.
+ * 
+ * @author lewisb
  *
  */
-
 public class CompositeGrade implements Grade {
+
 	private final GradeCalculationStrategy strategy;
 	private final List<Grade> childGrades;
-
+	
 	/**
-	 * The constructor
-	 *
-	 * @param strategy
+	 * Creates a new CompositeGrade using the given strategy.
+	 * 
+	 * @param strategy the strategy to use for grade calculation. Must not be null.
 	 */
 	public CompositeGrade(GradeCalculationStrategy strategy) {
 		if (strategy == null) {
 			throw new IllegalArgumentException("strategy must not be null");
 		}
+		
 		this.strategy = strategy;
 		this.childGrades = new ArrayList<Grade>();
 	}
-
+	
 	/**
-	 * This is add method
-	 *
-	 * @param grade
+	 * Adds a {@link Grade} to this CompositeGrade.
+	 * 
+	 * @param grade the grade to add. Must not be null and must not already exist in this CompositeGrade
 	 */
-
-	public void add(Grade grade) {
+	public void add(final Grade grade) {
 		if (grade == null) {
 			throw new IllegalArgumentException("grade can not be null");
 		}
-		if (this.childGrades.contains(grade)) {
+		
+		if (childGrades.contains(grade)) {
 			throw new IllegalArgumentException("can not add the same grade twice");
 		}
-		this.childGrades.add(grade);
+		
+		childGrades.add(grade);
 	}
-
+	
 	/**
-	 * This is getGrade method
-	 *
-	 * @return List
+	 * Gets the {@link Grade}s contained in this CompositeGrade
+	 * 
+	 * @return all contained grades
 	 */
 	public List<Grade> getGrades() {
-		return Collections.unmodifiableList(this.childGrades);
+		return Collections.unmodifiableList(childGrades);
 	}
-
-	/**
-	 * This is getValue method
-	 *
-	 * @return double
-	 */
+	
 	@Override
 	public double getValue() {
-		return this.strategy.calculate(this.childGrades);
+		return strategy.calculate(childGrades);
 	}
 
 	/**
-	 * This is addAll method
-	 *
-	 * @param grades
+	 * Convenience method to add all grades in the list.
+	 * 
+	 * @param grades the list of grades to add. Will not allow duplicates or nulls inside the list.
 	 */
 	public void addAll(List<? extends Grade> grades) {
 		if (grades == null) {
 			throw new IllegalArgumentException("grades can not be null");
 		}
-		for (Grade grade : grades) {
-			add(grade);
+		
+		for (Grade grade: grades) {
+			this.add(grade);
 		}
-
 	}
 
 }

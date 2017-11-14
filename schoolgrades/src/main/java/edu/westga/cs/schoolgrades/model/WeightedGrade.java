@@ -1,43 +1,38 @@
 package edu.westga.cs.schoolgrades.model;
 
 /**
- * This is the WeightedGrade class
- *
- * @author Keith Oguntuwase
- * @version 1.0
+ * Decorator for {@link Grade} objects that applies a multiplicative weight.
+ * 
+ * @author lewisb
  *
  */
 public class WeightedGrade implements Grade {
 
 	private final Grade grade;
 	private final double weight;
-
+	
 	/**
-	 *
-	 * The constructor
-	 *
-	 * @param decoratedGrade
-	 * @param weight
+	 * Creates a WeightedGrade that decorates the given {@link Grade} by applying the given weight to it.
+	 * 
+	 * @param decoratedGrade the {@link Grade} to decorate. Must not be null
+	 * @param weight the weight to apply to decoratedGrade. Must be between 0.0 and 1.0
 	 */
-
-	public WeightedGrade(Grade decoratedGrade, double weight) {
+	public WeightedGrade(final Grade decoratedGrade, double weight) {
 		if (decoratedGrade == null) {
 			throw new IllegalArgumentException("grade should not be null");
 		}
-		if ((weight < 0.0D) || (weight > 1.0D)) {
+		
+		if (weight < 0 || weight > 1) {
 			throw new IllegalArgumentException("weight must be between 0.0 and 1.0");
 		}
+		
 		this.grade = decoratedGrade;
 		this.weight = weight;
 	}
-
-	/**
-	 * The getValue method
-	 *
-	 * @return double
-	 */
+	
 	@Override
 	public double getValue() {
 		return this.grade.getValue() * this.weight;
 	}
+
 }
