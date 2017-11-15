@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javafx.collections.ObservableList;
-
 /**
  * A {@link Grade} representing the aggregation of several other grades. Uses a {@link GradeCalculationStrategy} to determine
  * the calculation for the aggregate score.
  * 
  * @author lewisb
+ * @version 1.0   
  *
  */
 public class CompositeGrade implements Grade {

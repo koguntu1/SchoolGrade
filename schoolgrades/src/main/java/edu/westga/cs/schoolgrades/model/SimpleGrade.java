@@ -4,6 +4,7 @@ package edu.westga.cs.schoolgrades.model;
  * A {@link Grade} with a constant value.
  * 
  * @author lewisb
+ * @version 1.0   
  *
  */
 public class SimpleGrade implements Grade {
@@ -24,9 +25,8 @@ public class SimpleGrade implements Grade {
 	}
 	
 	/**
-	 * Sets the value.
-	 * 
-	 * @param value
+	 * Sets the value.	 * 
+	 * @param value   
 	 */
 	public void setValue(double value) {
 		if (value < 0) {

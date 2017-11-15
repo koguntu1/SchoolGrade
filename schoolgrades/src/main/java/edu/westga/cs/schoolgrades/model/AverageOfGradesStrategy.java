@@ -5,7 +5,8 @@ import java.util.List;
 /**
  * Strategy for averaging a list of {@link Grade}s
  * @author lewisb
- *
+ * @version 1.0
+ * 
  */
 public class AverageOfGradesStrategy extends SumOfGradesStrategy {
 

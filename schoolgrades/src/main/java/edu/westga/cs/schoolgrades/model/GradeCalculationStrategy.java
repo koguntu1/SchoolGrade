@@ -6,6 +6,7 @@ import java.util.List;
  * Interface for strategies for calculating an aggregate grade based on several constituent grades.
  * 
  * @author lewisb
+ * @version 1.0   
  *
  */
 public interface GradeCalculationStrategy {

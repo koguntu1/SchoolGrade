@@ -7,6 +7,7 @@ import java.util.List;
  * Decorator for {@link GradeCalculationStrategy}s that drops the lowest grade before applying the rest of the strategy.
  * 
  * @author lewisb
+ * @version 1.0   
  *
  */
 public class DropLowestStrategy implements GradeCalculationStrategy {
